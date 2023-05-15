@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="videoPlayer">
+<head>
+<title>AngularJS Video Player</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="videoPlayerCtrl">
+<h1>AngularJS Video Player</h1>
+<video ng-src="{{videoUrl}}" controls></video>
+<button ng-click="play()">Play</button>
+<button ng-click="pause()">Pause</button>
+<button ng-click="stop()">Stop</button>
+<button ng-click="fast()">Fast forward</button>
+<button ng-click="skip()">Skip</button>
+<button ng-click="rewind()">Rewind</button>
+<script>
+var app = angular.module("videoPlayer", []);
+app.controller("videoPlayerCtrl", function($scope) {
+$scope.videoUrl = "https://cdn.videvo.net/videvo_files/video/premium/video0261/large_watermarked/500_00299_preview.mp4";
+var video = document.getElementsByTagName("video")[0];
+$scope.play = function() {
+video.play();
+};
+$scope.pause = function() {
+video.pause();
+};
+$scope.stop = function() {
+video.currentTime = 0;
+video.pause();
+};
+$scope.fast = function() {
+    video.playbackRate = 2.0;
+};
+$scope.skip = function() {
+    video.currentTime = video.currentTime + 5;
+};
+$scope.rewind = function() {
+    video.currentTime = video.currentTime - 5;
+};
+});
+</script>
+</body>
+</html>

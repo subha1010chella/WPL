@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Form Validation</title>
+       <style>
+           legend {
+               display: block;
+               padding-left: 2px;
+               padding-right: 2px;
+               border: none;
+           }
+       </style>
+       <script type="text/javascript">
+           function validate() {
+               var user = document.getElementById("e").value;
+               var user2 = document.getElementById("e");
+               var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+               if (re.test(user)) {
+                   alert("done");
+                   return true;
+               }
+               else {
+                   user2.style.border = "red solid 3px";
+                   return false;
+               }
+           }
+       </script>
+   </head>
+   <body>
+       <center>
+           <br/>
+           <h1>Form Validation using Regular Expression</h1>
+           <br/>
+           <form>
+               <fieldset style="width:500px">
+                   <legend>Registation Form</legend>
+                   <table>
+                       <tr>
+                        Name: <input type="text" placeholder="name" maxlength="10">
+                       </tr>
+                       <br><br>
+                       <tr>
+                           Email: <input type="email"
+                               placeholder="username@gmail.com" id="e">
+                       </tr>
+                       <br><br>
+                       <tr>
+                           Password: <input type="password" placeholder="password">
+                       </tr>
+                       <br><br>
+                       <tr>
+                           Re-enter Password: <input type="password" placeholder="confirm password">
+                       </tr>
+                       <br><br>
+                       <tr>
+                           <label>Gender: </label>
+                           <select id="gender">
+                               <option value="male">Male</option>
+                               <option value="female">Female</option>
+                               <option value="others">Others</option>
+                           </select>
+                       </tr>
+                       <br><br>
+                       <tr><input type="submit"
+                           onclick="validate()" value="Create">
+                       </tr>
+                   </table>
+               </fieldset>
+           </form>
+       </center>
+   </body>
+</html>

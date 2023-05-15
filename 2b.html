@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>DOM Manipulation</title>
+   </head>
+   <body>
+       <p class="master2">I am sad and I eat</p>
+       <p class="master2">I am fat and I don't eat</p>
+       <p class="master2">I am sad coz I am fat</p>
+       <h1 class="master2">I am fat coz I am sad</h1>
+       <button id="btn">click me</button>
+       <script>
+           const btn = document.getElementById('btn')
+           btn.addEventListener('click', function master(){
+              var master = document.getElementsByClassName("master2");
+               master[2].innerHTML = 'I am sad and fat';
+               master[3].innerHTML = 'I am fat and sad';
+           })
+       </script>
+   </body>
+</html>
