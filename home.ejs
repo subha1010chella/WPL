@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="public/style.css">
+  </head>
+  <body>
+    <h1>Items</h1>
+    <ul>
+      <% items.forEach(item => { %>
+        <li><a href="/items/<%= item.id %>"><%= item.name %> - <%= item.price %></a></li>
+      <% }) %>
+    </ul>
+    <form method="POST" action="/items">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+      </div>
+      <div>
+        <label for="desc">Description:</label>
+        <input type="text" id="desc" name="desc">
+      </div>
+      <button type="submit">Add item</button>
+    </form>
+  </body>
+</html>
+
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 20px;
+    padding: 0;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+</style>
